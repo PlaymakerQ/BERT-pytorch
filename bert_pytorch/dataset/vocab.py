@@ -124,7 +124,7 @@ class WordVocab(Vocab):
             if isinstance(line, list):
                 words = line
             else:
-                words = line.replace("\n", "").replace("\t", "").split()
+                words = line.replace("\\n", "").replace("\\t", "").split()
 
             for word in words:
                 counter[word] += 1
@@ -171,8 +171,8 @@ def build():
     import argparse
 
     parser = argparse.ArgumentParser()
-    parser.add_argument("-c", "--corpus_path", required=True, type=str)
-    parser.add_argument("-o", "--output_path", required=True, type=str)
+    parser.add_argument("-c", "--corpus_path", default="corpus.small", type=str)
+    parser.add_argument("-o", "--output_path", default="vocab.small", type=str)
     parser.add_argument("-s", "--vocab_size", type=int, default=None)
     parser.add_argument("-e", "--encoding", type=str, default="utf-8")
     parser.add_argument("-m", "--min_freq", type=int, default=1)
@@ -183,3 +183,8 @@ def build():
 
     print("VOCAB SIZE:", len(vocab))
     vocab.save_vocab(args.output_path)
+
+
+if __name__ == '__main__':
+
+    build()

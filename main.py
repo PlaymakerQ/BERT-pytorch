@@ -11,10 +11,10 @@ def train():
     parser = argparse.ArgumentParser()
 
     parser.add_argument("-c", "--train_dataset",
-                        default="dataset/corpus.small", type=str, help="train dataset for train bert")
+                        default="data/corpus.small", type=str, help="train dataset for train bert")
     parser.add_argument("-t", "--test_dataset", type=str, default=None, help="test set for evaluate train set")
     parser.add_argument("-v", "--vocab_path",
-                        default="dataset/vocab.small", type=str, help="built vocab model path with bert-vocab")
+                        default="data/vocab.small", type=str, help="built vocab model path with bert-vocab")
     parser.add_argument("-o", "--output_path",
                         default="bert.model", type=str, help="ex)output/bert.model")
 
